@@ -2,6 +2,7 @@ package kz.bitlab.spring.firstproject.controllers;
 
 import kz.bitlab.spring.firstproject.db.ShopItemsDBManager;
 import kz.bitlab.spring.firstproject.models.ProductItem;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,9 @@ import java.util.List;
 @Controller
 public class ShopItemsController {
 
+    @Autowired
+    private ProductItem productItem;
+
     @GetMapping(value = "/shop")
     public String getIndex(Model model) {
         List<ProductItem> itemList = ShopItemsDBManager.getAllProductItems();
@@ -22,7 +26,7 @@ public class ShopItemsController {
 
     @GetMapping(value = "/shop/add-new-item")
     public String getItemForm(Model model) {
-        model.addAttribute("newItem", new ProductItem());
+        model.addAttribute("newItem", productItem);
         return "newItem";
     }
 

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<header class="header bg-secondary p-2 text-dark bg-opacity-25" th:fragment="nav">
+  <div class="row justify-content-between">
+    <div class="col col-md-4 align-self-center">
+      <a th:href="@{'/students'}" class="nav-link text-dark fw-bold">STUDENTS LIST</a>
+    </div>
+    <div class="col col-md-8">
+      <ul class="nav justify-content-end">
+        <li class="nav-item"><a href="#" class="nav-link text-dark">Home</a></li>
+        <li class="nav-item"><a th:href="@{'/students/add-new-student'}" class="nav-link text-dark">Add Student</a></li>
+        <li class="nav-item">
+          <input type="text">
+          <button class="btn btn-outline-secondary" type="button">Search</button>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</header>
+
+</body>
+</html>
