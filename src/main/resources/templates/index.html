@@ -12,50 +12,42 @@
 </head>
 <body>
 
-<header class="header bg-secondary p-2 text-dark bg-opacity-25">
+<header class="header bg-secondary p-2 text-dark bg-opacity-25 mb-5">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col col-md-4 align-self-center">
-                <a href="#" class="nav-link text-dark fw-bold">BITLAB SHOP</a>
-            </div>
-            <div class="col col-md-8">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item"><a th:href="@{'/add-new-item'}" class="nav-link text-dark">Add
-                    <li class="nav-item"><a href="#" class="nav-link text-dark">Top Sales</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-dark">New Sales</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-dark">By Category</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link text-dark">Sign In</a></li>
-                </ul>
+                <a th:href="@{'/'}" class="nav-link text-dark fw-bold">SPRING PROJECTS</a>
             </div>
         </div>
     </div>
-
 </header>
 <div class="container">
-    <section class="offer mb-3 mt-3">
-        <div class="row text-center">
-            <div class="col">
-                <h2 class="offer-heading">Welcome to BITLAB SHOP</h2>
-                <p class="offer-text">Electronic devices with high quality and service</p>
-            </div>
-        </div>
-    </section>
     <section class="shop">
         <div class="row">
-            <div th:each="productItem : ${itemList}" class="col-sm-6 col-md-6 col-lg-3">
+            <div class="col-sm-6 col-md-6 col-lg-3">
                 <div class="shop-item text-center shadow-lg mb-5 pb-1 rounded">
                     <div class="p-3 bg-secondary text-dark bg-opacity-25">
-                        <h6 th:text="${productItem.getName}"></h6>
+                        <h6>Shop Project</h6>
                     </div>
-
                     <div class="p-3 item-text">
-                        <p th:text="'$' + ${productItem.getPrice()}" class="item-price"></p>
-                        <p th:text="${productItem.getDescription()}" class="item-description"></p>
+                        <p class="item-description">e-Shop</p>
                     </div>
                     <div class="m-3 mt-0">
-                        <a href="#" class="btn btn-buy">Buy now</a>
+                        <a th:href="@{'/shop'}" class="btn btn-buy">Enter</a>
                     </div>
-
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+                <div class="shop-item text-center shadow-lg mb-5 pb-1 rounded">
+                    <div class="p-3 bg-secondary text-dark bg-opacity-25">
+                        <h6>Student List Project</h6>
+                    </div>
+                    <div class="p-3 item-text">
+                        <p class="item-description">Student List</p>
+                    </div>
+                    <div class="m-3 mt-0">
+                        <a th:href="@{'/students'}" class="btn btn-buy">Enter</a>
+                    </div>
                 </div>
             </div>
         </div>

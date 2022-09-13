@@ -5,7 +5,7 @@ import kz.bitlab.spring.firstproject.models.ProductItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBManager {
+public class ShopItemsDBManager {
     private static List<ProductItem> productItemList = new ArrayList<>();
     private static Long id = 7L;
 
