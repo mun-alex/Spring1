@@ -25,4 +25,16 @@ public class StudentsDBManager {
         student.setId(id++);
         studentList.add(student);
     }
+
+    public static Student getStudentById(Long id) {
+        return studentList.get(Integer.parseInt(id.toString()));
+    }
+
+    public static void updateStudent(Student student) {
+        studentList.set(Integer.parseInt(student.getId().toString()), student);
+    }
+
+    public static void delete(int index) {
+        studentList.remove(index);
+    }
 }

@@ -22,6 +22,8 @@
                     <th scope="col">SURNAME</th>
                     <th scope="col">EXAM</th>
                     <th scope="col">MARK</th>
+                    <th scope="col">EDIT</th>
+                    <th scope="col">DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,6 +34,8 @@
                     <td th:text="${student.getSurname()}"></td>
                     <td th:text="${student.getExam()}"></td>
                     <td th:text="${student.getMark()}"></td>
+                    <td><a th:href="@{'/students/edit/' + ${student.getId()}}" class="btn btn-primary">EDIT</a></td>
+                    <td><a th:href="@{'/students/delete/' + ${students.indexOf(student)}}" class="btn btn-danger">DELETE</a></td>
                 </tr>
                 </tbody>
             </table>

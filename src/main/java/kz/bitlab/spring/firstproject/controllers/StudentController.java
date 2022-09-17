@@ -4,9 +4,7 @@ import kz.bitlab.spring.firstproject.db.StudentsDBManager;
 import kz.bitlab.spring.firstproject.models.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +31,24 @@ public class StudentController {
         newStudent.setMark(getMark(newStudent.getExam()));
         StudentsDBManager.addStudent(newStudent);
         return "redirect:";
+    }
+
+    @GetMapping(value = "/students/edit/{id}")
+    public String getStudentEditForm(Model model, @PathVariable(name = "id") Long id) {
+        model.addAttribute("student", StudentsDBManager.getStudentById(id));
+        return "editStudent";
+    }
+
+    @PostMapping(value = "/students/edit")
+    public String updateStudent(@ModelAttribute(name = "student") Student student) {
+        StudentsDBManager.updateStudent(student);
+        return "redirect:";
+    }
+
+    @GetMapping(value = "/students/delete/{index}")
+    public String delete(@PathVariable(name = "index") int index) {
+        StudentsDBManager.delete(index);
+        return "redirect:/students";
     }
 
     @GetMapping(value = "")

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout=http://www.ultraq.net.nz/thymeleaf/layout
+      layout:decorate="layout/main">
+<body>
+<div class="container">
+    <div layout:fragment="content">
+        <section class="offer mb-3 mt-3">
+            <div class="row text-center">
+                <div class="col">
+                    <h2 class="offer-heading">Welcome to DEKANAT</h2>
+                </div>
+            </div>
+        </section>
+        <section class="shop">
+            <div class="row">
+                <div class="col-lg-6">
+                    <form th:action="@{'/students/edit'}" method="post" class="mx-auto" th:object="${student}">
+                        <input th:value="${student.getId()}" th:field="*{id}" type="hidden">
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="studentName" th:value="${student.getName()}" th:field="*{name}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentSurname" class="form-label">Surname</label>
+                            <input type="text" class="form-control" id="studentSurname" th:value="${student.getSurname()}" th:field="*{surname}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentExam" class="form-label">Exam</label>
+                            <input type="number" class="form-control" id="studentExam" th:value="${student.getExam()}" th:field="*{exam}" required>
+                        </div>
+                        <a th:href="@{'/students'}" class="btn btn-secondary">CLose</a>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>
